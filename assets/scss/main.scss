@@ -1,0 +1,189 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300,500,600);
+
+$bg: linear-gradient(to top right, #EEBE6C 0%, #CA7C4E 100%);
+$color__primary: #786450;
+$card__width: 320px;
+
+$card__left__side__width: 200px;
+
+$height__image__container: 70px;
+$width__image__container: 70px;
+
+$height__button: 30px;
+$width__button: 120px;
+$bg__button: #FFF;
+
+$card__right__side__width: 120px;
+$bg__stat: #F5E8DF;
+$bg__hover__stat: #E1CFC2;
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $bg;
+}
+
+.card__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    display: flex;
+    height: auto;
+    background-color: #FFF;
+    color: $color__primary;
+    border-radius: 3px;
+    width: $card__width;
+    height: auto;
+    box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.left__side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: $card__left__side__width;
+    padding: 38px 0;
+
+    .image__container {
+        position: relative;
+        height: $height__image__container;
+        width: $width__image__container;
+        cursor: pointer;
+    }
+
+    .image__container:hover .first__circle {
+        transform: rotate(360deg);
+    }
+
+    .image__container:hover .second__circle {
+        transform: rotate(-360deg);
+    }
+
+    .image__container .circle {
+        position: absolute;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 50%;
+        transition: all 1.5s ease-in-out;
+    }
+
+    .image__container .first__circle {
+        top: -3px;
+        left: -3px;
+        height: calc(#{$height__image__container} + 6px);
+        width: calc(#{$width__image__container} + 6px);
+        border-color: #786450 #786450 #786450 transparent;
+    }
+    
+    .image__container .second__circle {
+        top: -6px;
+        left: -6px;
+        height: calc(#{$height__image__container} + 12px);
+        width: calc(#{$width__image__container} + 12px);
+        border-color: #786450 transparent #786450 #786450;
+    }
+
+    .image__container img {
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    h1 {
+        margin: .5rem 0 0 0;
+        text-transform: capitalize;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0 0 33px 0;
+        text-transform: capitalize;
+        font-size: .7rem;
+        font-weight: 300;
+    }
+
+    button {
+        height: $height__button;
+        width: $width__button;
+        text-transform: capitalize;
+        border: 1px solid $color__primary;
+        border-radius: 15px;
+        background-color: $bg__button;
+        color: $color__primary;
+        font-weight: 600;
+        margin-bottom: 10px;
+        transition: all ease-in-out .3s;
+
+        &:hover {
+            background-color: $color__primary;
+            color: $bg__button;
+        }
+    }
+}
+
+.right__side {
+    flex-basis: $card__right__side__width;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    .stat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $bg__stat;
+        color: $color__primary;
+        height: 100%;
+        cursor: pointer;
+        transition: all ease-in-out .3s;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #FFF;
+        }
+
+        &:hover {
+            background-color: $bg__hover__stat;
+        }
+    }
+
+    .stat p {
+        margin: 0;
+    }
+
+    .stat p:first-child {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .stat p:last-child {
+        text-transform: capitalize;
+        font-size: .7rem;
+        font-weight: 300;
+    }
+}
